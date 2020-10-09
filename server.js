@@ -13,10 +13,10 @@ const imageCount = require('./controllers/imageCount');
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'localhost',
-        user: 'postgres',
-        password: 'test',
-        database: 'smart-brain'
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
     }
 });
 
